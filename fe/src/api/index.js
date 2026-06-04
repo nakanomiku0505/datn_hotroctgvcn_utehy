@@ -39,7 +39,10 @@ export const thongBaoAPI = {
   create: (data) => api.post('/thong-bao', data),
   update: (id, data) => api.put(`/thong-bao/${id}`, data),
   delete: (id) => api.delete(`/thong-bao/${id}`),
-  copyFromMonth: (data) => api.post('/thong-bao/copy-month', data)
+  copyFromMonth: (data) => api.post('/thong-bao/copy-month', data),
+  getDeployedByLop: (lopId) => api.get(`/thong-bao/deployed/lop/${lopId}`),
+  markDeployed: (data) => api.post('/thong-bao/deployed/mark', data),
+  unmarkDeployed: (data) => api.post('/thong-bao/deployed/unmark', data),
 };
 
 export const diemDanhAPI = {
@@ -127,8 +130,3 @@ export const thongKeAPI = {
   getOverview: () => api.get('/thong-ke'),
 };
 
-export const thongBaoDaTrienKhaiAPI = {
-  getByLop: (lopId) => api.get(`/thong-bao-da-trien-khai/lop/${lopId}`),
-  mark: (data) => api.post('/thong-bao-da-trien-khai/mark', data),
-  unmark: (data) => api.post('/thong-bao-da-trien-khai/unmark', data),
-};

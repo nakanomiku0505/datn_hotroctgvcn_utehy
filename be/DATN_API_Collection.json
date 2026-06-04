@@ -1,0 +1,2745 @@
+{
+    "info": {
+        "name": "DATN API Collection (Real Data)",
+        "description": "Tự động generate các endpoints của Backend kèm dữ liệu thật từ Database",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "auth",
+            "item": [
+                {
+                    "name": "[POST] /auth/register",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/auth/register",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "register"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"1232\",\n    \"password\": \"123456\",\n    \"email\": \"1232@utehy.edu.vn\",\n    \"full_name\": \"Vũ Xuân Thắng\",\n    \"phone\": \"0123456789\",\n    \"role\": 1\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /auth/login",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/auth/login",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "login"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"1232\",\n    \"password\": \"123456\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "chi-tiet-ren-luyen",
+            "item": [
+                {
+                    "name": "[GET] /chi-tiet-ren-luyen",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/chi-tiet-ren-luyen",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "chi-tiet-ren-luyen"
+                            ],
+                            "variable": [],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /chi-tiet-ren-luyen/diem-ren-luyen/:drlId",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/chi-tiet-ren-luyen/diem-ren-luyen/:drlId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "chi-tiet-ren-luyen",
+                                "diem-ren-luyen",
+                                ":drlId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "drlId",
+                                    "value": "100"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /chi-tiet-ren-luyen",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/chi-tiet-ren-luyen",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "chi-tiet-ren-luyen"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"diemRenLuyenId\": 100,\n    \"tieuChi\": \"Tiêu chí\",\n    \"noiDung\": \"Nội dung\",\n    \"diem\": 8.5,\n    \"diemToiDa\": 10\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[PUT] /chi-tiet-ren-luyen/:id",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/chi-tiet-ren-luyen/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "chi-tiet-ren-luyen",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"diemRenLuyenId\": 100,\n    \"tieuChi\": \"Tiêu chí\",\n    \"noiDung\": \"Nội dung\",\n    \"diem\": 8.5,\n    \"diemToiDa\": 10\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[DELETE] /chi-tiet-ren-luyen/:id",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/chi-tiet-ren-luyen/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "chi-tiet-ren-luyen",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "diem-danh",
+            "item": [
+                {
+                    "name": "[GET] /diem-danh",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-danh?page=1&limit=10&sinhVienId=50&lopId=2&ngay=2024-05-01",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-danh"
+                            ],
+                            "variable": [],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                },
+                                {
+                                    "key": "sinhVienId",
+                                    "value": "50"
+                                },
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                },
+                                {
+                                    "key": "ngay",
+                                    "value": "2024-05-01"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /diem-danh/export-excel",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-danh/export-excel?nam=2024-2025&lopId=2&thang=5",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-danh",
+                                "export-excel"
+                            ],
+                            "variable": [],
+                            "query": [
+                                {
+                                    "key": "nam",
+                                    "value": "2024-2025"
+                                },
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                },
+                                {
+                                    "key": "thang",
+                                    "value": "5"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /diem-danh/absence-summary",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-danh/absence-summary?lopId=2&tuNgay=2024-05-01&denNgay=2024-05-01",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-danh",
+                                "absence-summary"
+                            ],
+                            "variable": [],
+                            "query": [
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                },
+                                {
+                                    "key": "tuNgay",
+                                    "value": "2024-05-01"
+                                },
+                                {
+                                    "key": "denNgay",
+                                    "value": "2024-05-01"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /diem-danh/lop/:lopId",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-danh/lop/:lopId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-danh",
+                                "lop",
+                                ":lopId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /diem-danh/sinhvien/:svId",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-danh/sinhvien/:svId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-danh",
+                                "sinhvien",
+                                ":svId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "svId",
+                                    "value": "50"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /diem-danh",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-danh",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-danh"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"sinhVienId\": 50,\n    \"lopId\": 2,\n    \"ngay\": \"2024-05-01\",\n    \"thu\": 2,\n    \"buoi\": 1,\n    \"trangThai\": 1\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[PUT] /diem-danh/:id",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-danh/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-danh",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"sinhVienId\": 50,\n    \"lopId\": 2,\n    \"ngay\": \"2024-05-01\",\n    \"thu\": 2,\n    \"buoi\": 1,\n    \"trangThai\": 1\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[DELETE] /diem-danh/:id",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-danh/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-danh",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "diem-ren-luyen",
+            "item": [
+                {
+                    "name": "[GET] /diem-ren-luyen",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-ren-luyen?page=1&limit=10&sinhVienId=50&hocKy=1&namHoc=2024-2025&lopId=2",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-ren-luyen"
+                            ],
+                            "variable": [],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                },
+                                {
+                                    "key": "sinhVienId",
+                                    "value": "50"
+                                },
+                                {
+                                    "key": "hocKy",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "namHoc",
+                                    "value": "2024-2025"
+                                },
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /diem-ren-luyen/export-excel",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-ren-luyen/export-excel?lopId=2&hocKy=1&namHoc=2024-2025",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-ren-luyen",
+                                "export-excel"
+                            ],
+                            "variable": [],
+                            "query": [
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                },
+                                {
+                                    "key": "hocKy",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "namHoc",
+                                    "value": "2024-2025"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /diem-ren-luyen/sinhvien/:svId",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-ren-luyen/sinhvien/:svId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-ren-luyen",
+                                "sinhvien",
+                                ":svId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "svId",
+                                    "value": "50"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /diem-ren-luyen/batch",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-ren-luyen/batch",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-ren-luyen",
+                                "batch"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"lopId\": 2,\n    \"hocKy\": 1,\n    \"namHoc\": \"2024-2025\",\n    \"data\": []\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /diem-ren-luyen",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-ren-luyen",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-ren-luyen"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"sinhVienId\": 50,\n    \"hocKy\": 1,\n    \"namHoc\": \"2024-2025\",\n    \"tongDiem\": 8.5,\n    \"xepLoai\": \"Giỏi\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[PUT] /diem-ren-luyen/:id",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-ren-luyen/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-ren-luyen",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"sinhVienId\": 50,\n    \"hocKy\": 1,\n    \"namHoc\": \"2024-2025\",\n    \"tongDiem\": 8.5,\n    \"xepLoai\": \"Giỏi\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[DELETE] /diem-ren-luyen/lop/:lopId",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-ren-luyen/lop/:lopId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-ren-luyen",
+                                "lop",
+                                ":lopId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[DELETE] /diem-ren-luyen/:id",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/diem-ren-luyen/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "diem-ren-luyen",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "ket-qua-hoc-tap",
+            "item": [
+                {
+                    "name": "[GET] /ket-qua-hoc-tap",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/ket-qua-hoc-tap?page=1&limit=10&sinhVienId=50&hocKy=1&namHoc=2024-2025&lopId=2",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "ket-qua-hoc-tap"
+                            ],
+                            "variable": [],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                },
+                                {
+                                    "key": "sinhVienId",
+                                    "value": "50"
+                                },
+                                {
+                                    "key": "hocKy",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "namHoc",
+                                    "value": "2024-2025"
+                                },
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /ket-qua-hoc-tap/sinhvien/:svId",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/ket-qua-hoc-tap/sinhvien/:svId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "ket-qua-hoc-tap",
+                                "sinhvien",
+                                ":svId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "svId",
+                                    "value": "50"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /ket-qua-hoc-tap/upload",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/ket-qua-hoc-tap/upload",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "ket-qua-hoc-tap",
+                                "upload"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "namHoc",
+                                    "value": "2024-2025",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "lopId",
+                                    "value": "2",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "file",
+                                    "type": "file",
+                                    "src": []
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /ket-qua-hoc-tap",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/ket-qua-hoc-tap",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "ket-qua-hoc-tap"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"sinhVienId\": 50,\n    \"monHocId\": 211127,\n    \"diem10\": 8.5,\n    \"diemChu\": \"Giỏi\",\n    \"hocKy\": 1,\n    \"namHoc\": \"2024-2025\",\n    \"hocLai\": 0\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[PUT] /ket-qua-hoc-tap/:id",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/ket-qua-hoc-tap/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "ket-qua-hoc-tap",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"sinhVienId\": 50,\n    \"monHocId\": 211127,\n    \"diem10\": 8.5,\n    \"diemChu\": \"Giỏi\",\n    \"hocKy\": 1,\n    \"namHoc\": \"2024-2025\",\n    \"hocLai\": 0\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[DELETE] /ket-qua-hoc-tap/lop/:lopId",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/ket-qua-hoc-tap/lop/:lopId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "ket-qua-hoc-tap",
+                                "lop",
+                                ":lopId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[DELETE] /ket-qua-hoc-tap/:id",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/ket-qua-hoc-tap/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "ket-qua-hoc-tap",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "lop",
+            "item": [
+                {
+                    "name": "[GET] /lop",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/lop?page=1&limit=10&search=&khoa=K24&nganh=CNTT",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "lop"
+                            ],
+                            "variable": [],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "khoa",
+                                    "value": "K24"
+                                },
+                                {
+                                    "key": "nganh",
+                                    "value": "CNTT"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /lop/:id",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/lop/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "lop",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /lop",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/lop",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "lop"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"tenLop\": \"13523W.2 test\",\n    \"khoa\": \"K24\",\n    \"nganh\": \"CNTT\",\n    \"trangThai\": 1,\n    \"gvcNId\": 1,\n    \"lopTruongId\": 1\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /lop/import-classes",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/lop/import-classes",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "lop",
+                                "import-classes"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"classes\": []\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /lop/import-all",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/lop/import-all",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "lop",
+                                "import-all"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"data\": []\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /lop/:id/import",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/lop/:id/import",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "lop",
+                                ":id",
+                                "import"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"students\": []\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[PUT] /lop/:id",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/lop/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "lop",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"tenLop\": \"13523W.2 test\",\n    \"khoa\": \"K24\",\n    \"nganh\": \"CNTT\",\n    \"trangThai\": 1,\n    \"gvcNId\": 1,\n    \"lopTruongId\": 1\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[DELETE] /lop/:id",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/lop/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "lop",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "lop-sinhvien",
+            "item": [
+                {
+                    "name": "[GET] /lop-sinhvien",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/lop-sinhvien",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "lop-sinhvien"
+                            ],
+                            "variable": [],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /lop-sinhvien/lop/:lopId",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/lop-sinhvien/lop/:lopId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "lop-sinhvien",
+                                "lop",
+                                ":lopId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /lop-sinhvien",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/lop-sinhvien",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "lop-sinhvien"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"lop_id\": 2,\n    \"sinhvien_id\": 50\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[DELETE] /lop-sinhvien/:lop_id/:sinhvien_id",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/lop-sinhvien/:lop_id/:sinhvien_id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "lop-sinhvien",
+                                ":lop_id",
+                                ":sinhvien_id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "lop_id",
+                                    "value": "2"
+                                },
+                                {
+                                    "key": "sinhvien_id",
+                                    "value": "50"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "mon-hoc",
+            "item": [
+                {
+                    "name": "[GET] /mon-hoc",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/mon-hoc?page=1&limit=10&search=",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "mon-hoc"
+                            ],
+                            "variable": [],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": ""
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /mon-hoc/:id",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/mon-hoc/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "mon-hoc",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /mon-hoc",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/mon-hoc",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "mon-hoc"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"tenMon\": \"Phát triển ứng dụng Mobile đa nền tảng (2+1*)\",\n    \"soTinChi\": 3\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[PUT] /mon-hoc/:id",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/mon-hoc/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "mon-hoc",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"tenMon\": \"Phát triển ứng dụng Mobile đa nền tảng (2+1*)\",\n    \"soTinChi\": 3\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[DELETE] /mon-hoc/:id",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/mon-hoc/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "mon-hoc",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "sinhvien",
+            "item": [
+                {
+                    "name": "[GET] /sinhvien",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/sinhvien?page=1&limit=10&search=&nganh=CNTT&trangThai=1&lopId=2",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "sinhvien"
+                            ],
+                            "variable": [],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "nganh",
+                                    "value": "CNTT"
+                                },
+                                {
+                                    "key": "trangThai",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /sinhvien/:id",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/sinhvien/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "sinhvien",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /sinhvien",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/sinhvien",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "sinhvien"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[PUT] /sinhvien/:id",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/sinhvien/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "sinhvien",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[DELETE] /sinhvien/:id",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/sinhvien/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "sinhvien",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[DELETE] /sinhvien/lop/:lopId",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/sinhvien/lop/:lopId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "sinhvien",
+                                "lop",
+                                ":lopId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "thongbao",
+            "item": [
+                {
+                    "name": "[GET] /thongbao",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/thongbao?page=1&limit=10&loai=1&nam=2024-2025&thang=5&search=",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "thongbao"
+                            ],
+                            "variable": [],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                },
+                                {
+                                    "key": "loai",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "nam",
+                                    "value": "2024-2025"
+                                },
+                                {
+                                    "key": "thang",
+                                    "value": "5"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": ""
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /thongbao/copy-month",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/thongbao/copy-month",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "thongbao",
+                                "copy-month"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"fromMonth\": 4,\n    \"fromYear\": 2024,\n    \"toMonth\": 5,\n    \"toYear\": 2024\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /thongbao/:id",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/thongbao/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "thongbao",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /thongbao",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/thongbao",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "thongbao"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "file",
+                                    "type": "file",
+                                    "src": []
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[PUT] /thongbao/:id",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/thongbao/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "thongbao",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "noiDung",
+                                    "value": "Nội dung",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "loai",
+                                    "value": "1",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "khoaApDung",
+                                    "value": "Tất cả",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "nam",
+                                    "value": "2024-2025",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "thang",
+                                    "value": "5",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "file",
+                                    "type": "file",
+                                    "src": []
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[DELETE] /thongbao/:id",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/thongbao/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "thongbao",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "thong-bao-da-trien-khai",
+            "item": [
+                {
+                    "name": "[GET] /thong-bao-da-trien-khai/lop/:lopId",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/thong-bao-da-trien-khai/lop/:lopId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "thong-bao-da-trien-khai",
+                                "lop",
+                                ":lopId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /thong-bao-da-trien-khai/mark",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/thong-bao-da-trien-khai/mark",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "thong-bao-da-trien-khai",
+                                "mark"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"thongBaoId\": 1,\n    \"lopId\": 2,\n    \"gvcnId\": 1\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /thong-bao-da-trien-khai/unmark",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/thong-bao-da-trien-khai/unmark",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "thong-bao-da-trien-khai",
+                                "unmark"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"thongBaoId\": 1,\n    \"lopId\": 2\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "thong-ke",
+            "item": [
+                {
+                    "name": "[GET] /thong-ke",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/thong-ke",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "thong-ke"
+                            ],
+                            "variable": [],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "trien-khai-thong-bao",
+            "item": [
+                {
+                    "name": "[GET] /trien-khai-thong-bao/export/word",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/trien-khai-thong-bao/export/word?lopId=2&thang=5&nam=2024-2025",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "trien-khai-thong-bao",
+                                "export",
+                                "word"
+                            ],
+                            "variable": [],
+                            "query": [
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                },
+                                {
+                                    "key": "thang",
+                                    "value": "5"
+                                },
+                                {
+                                    "key": "nam",
+                                    "value": "2024-2025"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /trien-khai-thong-bao",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/trien-khai-thong-bao?page=1&limit=10&lopId=2&thang=5&nam=2024-2025",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "trien-khai-thong-bao"
+                            ],
+                            "variable": [],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                },
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                },
+                                {
+                                    "key": "thang",
+                                    "value": "5"
+                                },
+                                {
+                                    "key": "nam",
+                                    "value": "2024-2025"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /trien-khai-thong-bao/lop/:lopId",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/trien-khai-thong-bao/lop/:lopId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "trien-khai-thong-bao",
+                                "lop",
+                                ":lopId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "lopId",
+                                    "value": "2"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /trien-khai-thong-bao",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/trien-khai-thong-bao",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "trien-khai-thong-bao"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[PUT] /trien-khai-thong-bao/:id",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/trien-khai-thong-bao/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "trien-khai-thong-bao",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[DELETE] /trien-khai-thong-bao/:id",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/trien-khai-thong-bao/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "trien-khai-thong-bao",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "users",
+            "item": [
+                {
+                    "name": "[GET] /users",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/users",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "users"
+                            ],
+                            "variable": [],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[GET] /users/:id",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/users/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "users",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[POST] /users",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/users",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "users"
+                            ],
+                            "variable": [],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"1232\",\n    \"password\": \"123456\",\n    \"email\": \"1232@utehy.edu.vn\",\n    \"full_name\": \"Vũ Xuân Thắng\",\n    \"phone\": \"0123456789\",\n    \"role\": 1\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[PUT] /users/:id",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/users/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "users",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"1232@utehy.edu.vn\",\n    \"full_name\": \"Vũ Xuân Thắng\",\n    \"phone\": \"0123456789\",\n    \"role\": 1,\n    \"password\": \"123456\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "[DELETE] /users/:id",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/users/:id",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "users",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
+                            ],
+                            "query": []
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "url",
+            "value": "http://localhost:5000/api",
+            "type": "string"
+        },
+        {
+            "key": "token",
+            "value": "YOUR_TOKEN_HERE",
+            "type": "string"
+        }
+    ]
+}

@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 exports.register = async (req, res) => {
     try {
         const { username, password, email, full_name, phone, role } = req.body;
-        
+
         // Kiểm tra user đã tồn tại chưa
         const [users] = await db.query('SELECT * FROM users WHERE username = ? OR email = ?', [username, email || '']);
         if (users.length > 0) {
@@ -47,7 +47,7 @@ exports.login = async (req, res) => {
         const token = jwt.sign(
             { id: user.id, role: user.role },
             process.env.JWT_SECRET,
-            { expiresIn: '24h' }
+            { expiresIn: '72h' }
         );
 
         // Đếm số lượng lớp quản lý (nếu là GVCN hoặc Lớp trưởng)

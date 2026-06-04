@@ -24,6 +24,9 @@ router.use(verifyToken);
 
 router.get('/', thongbaoController.getAll);
 router.post('/copy-month', thongbaoController.copyFromMonth);
+router.get('/deployed/lop/:lopId', thongbaoController.getDeployedByLop);
+router.post('/deployed/mark', thongbaoController.markAsDeployed);
+router.post('/deployed/unmark', thongbaoController.unmarkAsDeployed);
 router.get('/:id', thongbaoController.getById);
 router.post('/', upload.array('files', 10), thongbaoController.create);
 router.put('/:id', upload.array('files', 10), thongbaoController.update);

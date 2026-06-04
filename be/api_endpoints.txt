@@ -1,0 +1,324 @@
+
+=== Module: auth ===
+[POST] /auth/register
+    Method: register
+    Data: No payload/query data found.
+
+[POST] /auth/login
+    Method: login
+    Data: No payload/query data found.
+
+
+=== Module: chitietrenluyen ===
+[GET] /chi-tiet-ren-luyen
+    Method: getAll
+    Data: No payload/query data found.
+
+[GET] /chi-tiet-ren-luyen/diem-ren-luyen/:drlId
+    Method: getByDiemRenLuyen
+    Data: Params: drlId
+
+[POST] /chi-tiet-ren-luyen
+    Method: create
+    Data: No payload/query data found.
+
+[PUT] /chi-tiet-ren-luyen/:id
+    Method: update
+    Data: Params: id
+
+[DELETE] /chi-tiet-ren-luyen/:id
+    Method: delete
+    Data: Params: id
+
+
+=== Module: diemdanh ===
+[GET] /diem-danh
+    Method: getAll
+    Data: Query: page, limit, sinhVienId, lopId, ngay
+
+[GET] /diem-danh/export-excel
+    Method: exportExcel
+    Data: Query: nam
+
+[GET] /diem-danh/absence-summary
+    Method: getAbsenceSummary
+    Data: No payload/query data found.
+
+[GET] /diem-danh/lop/:lopId
+    Method: getByLop
+    Data: Params: lopId
+
+[GET] /diem-danh/sinhvien/:svId
+    Method: getBySinhVien
+    Data: Params: svId
+
+[POST] /diem-danh
+    Method: create
+    Data: No payload/query data found.
+
+[PUT] /diem-danh/:id
+    Method: update
+    Data: Params: id
+
+[DELETE] /diem-danh/:id
+    Method: delete
+    Data: Params: id
+
+
+=== Module: diemrenluyen ===
+[GET] /diem-ren-luyen
+    Method: getAll
+    Data: Query: page, limit, sinhVienId, hocKy, namHoc, lopId
+
+[GET] /diem-ren-luyen/export-excel
+    Method: exportTemplate
+    Data: No payload/query data found.
+
+[GET] /diem-ren-luyen/sinhvien/:svId
+    Method: getBySinhVien
+    Data: Params: svId
+
+[POST] /diem-ren-luyen/batch
+    Method: saveBatch
+    Data: No payload/query data found.
+
+[POST] /diem-ren-luyen
+    Method: create
+    Data: No payload/query data found.
+
+[PUT] /diem-ren-luyen/:id
+    Method: update
+    Data: Params: id
+
+[DELETE] /diem-ren-luyen/lop/:lopId
+    Method: deleteByLopId
+    Data: Params: lopId
+
+[DELETE] /diem-ren-luyen/:id
+    Method: delete
+    Data: Params: id
+
+
+=== Module: ketquahoctap ===
+[GET] /ket-qua-hoc-tap
+    Method: getAll
+    Data: Query: page, limit, sinhVienId, hocKy, namHoc, lopId
+
+[GET] /ket-qua-hoc-tap/sinhvien/:svId
+    Method: getBySinhVienId
+    Data: Params: svId
+
+[POST] /ket-qua-hoc-tap/upload
+    Method: uploadExcel
+    Data: Body: namHoc, lopId
+
+[POST] /ket-qua-hoc-tap
+    Method: create
+    Data: No payload/query data found.
+
+[PUT] /ket-qua-hoc-tap/:id
+    Method: update
+    Data: Params: id
+
+[DELETE] /ket-qua-hoc-tap/lop/:lopId
+    Method: deleteByLopId
+    Data: Params: lopId
+
+[DELETE] /ket-qua-hoc-tap/:id
+    Method: delete
+    Data: Params: id
+
+
+=== Module: lop ===
+[GET] /lop
+    Method: getAll
+    Data: Query: page, limit, search, khoa, nganh
+
+[GET] /lop/:id
+    Method: getById
+    Data: Params: id
+
+[POST] /lop
+    Method: create
+    Data: No payload/query data found.
+
+[POST] /lop/import-classes
+    Method: importClasses
+    Data: No payload/query data found.
+
+[POST] /lop/import-all
+    Method: importClassesWithStudents
+    Data: No payload/query data found.
+
+[POST] /lop/:id/import
+    Method: importStudents
+    Data: Body: students | Params: id
+
+[PUT] /lop/:id
+    Method: update
+    Data: Params: id
+
+[DELETE] /lop/:id
+    Method: delete
+    Data: Params: id
+
+
+=== Module: lopsinhvien ===
+[GET] /lop-sinhvien
+    Method: getAll
+    Data: No payload/query data found.
+
+[GET] /lop-sinhvien/lop/:lopId
+    Method: getSinhVienByLop
+    Data: Params: lopId
+
+[POST] /lop-sinhvien
+    Method: create
+    Data: No payload/query data found.
+
+[DELETE] /lop-sinhvien/:lop_id/:sinhvien_id
+    Method: delete
+    Data: No payload/query data found.
+
+
+=== Module: monhoc ===
+[GET] /mon-hoc
+    Method: getAll
+    Data: Query: page, limit, search
+
+[GET] /mon-hoc/:id
+    Method: getById
+    Data: Params: id
+
+[POST] /mon-hoc
+    Method: create
+    Data: No payload/query data found.
+
+[PUT] /mon-hoc/:id
+    Method: update
+    Data: Params: id
+
+[DELETE] /mon-hoc/:id
+    Method: delete
+    Data: Params: id
+
+
+=== Module: sinhvien ===
+[GET] /sinhvien
+    Method: getAll
+    Data: Query: page, limit, search, nganh, trangThai, lopId
+
+[GET] /sinhvien/:id
+    Method: getById
+    Data: Params: id
+
+[POST] /sinhvien
+    Method: create
+    Data: No payload/query data found.
+
+[PUT] /sinhvien/:id
+    Method: update
+    Data: Params: id
+
+[DELETE] /sinhvien/:id
+    Method: delete
+    Data: Params: id
+
+[DELETE] /sinhvien/lop/:lopId
+    Method: deleteAllByLop
+    Data: Params: lopId
+
+
+=== Module: thongbao ===
+[GET] /thongbao
+    Method: getAll
+    Data: Query: page, limit, loai, nam, thang, search
+
+[POST] /thongbao/copy-month
+    Method: copyFromMonth
+    Data: No payload/query data found.
+
+[GET] /thongbao/:id
+    Method: getById
+    Data: Params: id
+
+[POST] /thongbao
+    Method: create
+    Data: No payload/query data found.
+
+[PUT] /thongbao/:id
+    Method: update
+    Data: Params: id
+
+[DELETE] /thongbao/:id
+    Method: delete
+    Data: Params: id
+
+
+=== Module: thongbaodatrienkhai ===
+[GET] /thong-bao-da-trien-khai/lop/:lopId
+    Method: getDeployedByLop
+    Data: No payload/query data found.
+
+[POST] /thong-bao-da-trien-khai/mark
+    Method: markAsDeployed
+    Data: No payload/query data found.
+
+[POST] /thong-bao-da-trien-khai/unmark
+    Method: unmarkAsDeployed
+    Data: No payload/query data found.
+
+
+=== Module: thongke ===
+[GET] /thong-ke
+    Method: getOverview
+    Data: No payload/query data found.
+
+
+=== Module: trienkhaithongbao ===
+[GET] /trien-khai-thong-bao/export/word
+    Method: exportWord
+    Data: No payload/query data found.
+
+[GET] /trien-khai-thong-bao
+    Method: getAll
+    Data: Query: page, limit, lopId, thang, nam
+
+[GET] /trien-khai-thong-bao/lop/:lopId
+    Method: getByLop
+    Data: Params: lopId
+
+[POST] /trien-khai-thong-bao
+    Method: create
+    Data: No payload/query data found.
+
+[PUT] /trien-khai-thong-bao/:id
+    Method: update
+    Data: Params: id
+
+[DELETE] /trien-khai-thong-bao/:id
+    Method: delete
+    Data: Params: id
+
+
+=== Module: user ===
+[GET] /users
+    Method: getAll
+    Data: No payload/query data found.
+
+[GET] /users/:id
+    Method: getById
+    Data: Params: id
+
+[POST] /users
+    Method: create
+    Data: No payload/query data found.
+
+[PUT] /users/:id
+    Method: update
+    Data: No payload/query data found.
+
+[DELETE] /users/:id
+    Method: delete
+    Data: No payload/query data found.
+

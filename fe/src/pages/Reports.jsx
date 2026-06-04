@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Download, FileText, CheckCircle, Save, Sparkles, Trash2 } from 'lucide-react';
+import { Download, FileText, CheckCircle, Save, Sparkles, Trash2, AlertTriangle } from 'lucide-react';
 import { lopAPI, thongBaoAPI, trienKhaiThongBaoAPI, sinhVienAPI, lopSinhVienAPI } from '../api';
+import { Link } from 'react-router-dom';
 
 const Reports = () => {
   const currentMonth = new Date().getMonth() + 1;
@@ -14,6 +15,7 @@ const Reports = () => {
   const [year, setYear] = useState(currentYear.toString());
   
   const [notifications, setNotifications] = useState([]);
+  const [undeployedNotis, setUndeployedNotis] = useState([]);
   const [reportData, setReportData] = useState(null);
   
   const [formData, setFormData] = useState({
@@ -79,6 +81,16 @@ const Reports = () => {
       }
       
       setNotifications(currentNotifications);
+
+      // Kiểm tra thông báo chưa triển khai
+      try {
+        const deployedRes = await thongBaoAPI.getDeployedByLop(selectedClass);
+        const deployedIds = new Set((deployedRes.data || []).map(item => item.thongBaoId));
+        const notDeployed = currentNotifications.filter(n => !deployedIds.has(n.id));
+        setUndeployedNotis(notDeployed);
+      } catch (e) {
+        console.error("Lỗi kiểm tra thông báo triển khai:", e);
+      }
 
       // 2. Lấy dữ liệu báo cáo đã lưu (nếu có)
       const repRes = await trienKhaiThongBaoAPI.getAll({ lopId: selectedClass, thang: month, nam: year });
@@ -359,6 +371,24 @@ const Reports = () => {
           </div>
         </div>
       </div>
+
+      {undeployedNotis.length > 0 && (
+        <div className="mb-4" style={{ backgroundColor: '#fffbeb', color: '#92400e', padding: '16px', borderRadius: '12px', border: '1px solid #fcd34d', display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+          <div style={{ marginTop: '2px' }}><AlertTriangle size={20} color="#d97706" /></div>
+          <div style={{ flex: 1 }}>
+            <h4 style={{ margin: '0 0 8px 0', fontSize: '1rem', fontWeight: 600 }}>Cảnh báo: Có {undeployedNotis.length} thông báo chưa được triển khai</h4>
+            <p style={{ margin: 0, fontSize: '0.875rem', marginBottom: '8px' }}>
+              Lớp của bạn chưa xác nhận triển khai một số thông báo trong tháng. Vui lòng vào trang <Link to="/notifications" style={{ fontWeight: 600, color: '#b45309', textDecoration: 'underline' }}>Quản lý thông báo</Link> để hoàn tất trước khi báo cáo.
+            </p>
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '0.875rem' }}>
+              {undeployedNotis.slice(0, 3).map(n => (
+                <li key={n.id} className="mb-1">{n.noiDung.substring(0, 100)}{n.noiDung.length > 100 ? '...' : ''}</li>
+              ))}
+              {undeployedNotis.length > 3 && <li>... và {undeployedNotis.length - 3} thông báo khác.</li>}
+            </ul>
+          </div>
+        </div>
+      )}
 
       <div className="grid-3 mb-4">
          <div className="card" style={{ gridColumn: 'span 2' }}>

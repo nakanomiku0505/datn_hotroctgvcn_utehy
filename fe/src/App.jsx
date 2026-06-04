@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import Dashboard from './pages/Dashboard';
 import Notifications from './pages/Notifications';
-import DeployNotifications from './pages/DeployNotifications';
+
 import Classes from './pages/Classes';
 import Students from './pages/Students';
 import Attendance from './pages/Attendance';
@@ -48,13 +48,8 @@ function App() {
             </PrivateRoute>
           } />
           <Route path="notifications" element={
-            <PrivateRoute allowedRoles={[0, 2]}>
+            <PrivateRoute allowedRoles={[0, 1, 2]}>
               <Notifications />
-            </PrivateRoute>
-          } />
-          <Route path="deploy-notifications" element={
-            <PrivateRoute allowedRoles={[0, 1]}>
-              <DeployNotifications />
             </PrivateRoute>
           } />
           <Route path="users" element={
@@ -63,7 +58,7 @@ function App() {
             </PrivateRoute>
           } />
           <Route path="teachers" element={
-            <PrivateRoute allowedRoles={[0, 2]}>
+            <PrivateRoute allowedRoles={[2]}>
               <Teachers />
             </PrivateRoute>
           } />

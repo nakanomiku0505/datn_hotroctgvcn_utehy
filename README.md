@@ -90,7 +90,7 @@ eduadviser/
 ### Bước 1: Khởi tạo Cơ sở dữ liệu (Database Setup)
 1. Mở MySQL Client hoặc công cụ như phpMyAdmin, DBeaver, MySQL Workbench.
 2. Tạo một schema database mới (ví dụ: `ql_gvcn`).
-3. Chạy các file `.sql` (nếu có, như `full_data.sql`, `sinhvien.sql`) được lưu trữ tại root directory để import cấu trúc bảng và dữ liệu mẫu.
+3. Chạy file `db_qlgvcn.sql` được lưu trữ tại root directory để import cấu trúc bảng và dữ liệu mẫu.
 
 ### Bước 2: Cấu hình Môi trường (Environment Variables)
 Tạo file `.env` nằm trong thư mục `be/` (`be/.env`) và điền các cấu hình dựa vào server CSDL của bạn:
@@ -102,7 +102,7 @@ PORT=5000
 # Cấu hình kết nối MySQL Database
 DB_HOST=localhost
 DB_USER=root
-DB_PASSWORD=mật_khẩu_mysql_của_bạn # Ví dụ: miku0505
+DB_PASSWORD=mật_khẩu_mysql_của_bạn # Ví dụ: abc123
 DB_NAME=ql_gvcn
 
 # Chuỗi bí mật dùng để mã hóa JWT Token (bạn có thể thay đổi tùy ý)

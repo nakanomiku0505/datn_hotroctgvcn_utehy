@@ -27,6 +27,13 @@ const fetchClient = async (endpoint, options = {}) => {
 
   try {
     const response = await fetch(`${BASE_URL}${endpoint}`, config);
+    if (response.status === 401 || response.status === 403) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      window.location.href = '/login';
+      throw new Error('Phiên đăng nhập đã hết hạn, vui lòng đăng nhập lại.');
+    }
+
     const data = await response.json();
 
     if (!response.ok) {

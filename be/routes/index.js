@@ -14,7 +14,6 @@ const chitietrenluyenRoutes = require('./chitietrenluyen.routes');
 const thongbaoRoutes = require('./thongbao.routes');
 const trienkhaithongbaoRoutes = require('./trienkhaithongbao.routes');
 const thongkeRoutes = require('./thongke.routes');
-const thongBaoDaTrienKhaiRoutes = require('./thongbaodatrienkhai.routes');
 
 router.use('/auth', authRoutes);
 router.use('/users', userRoutes);
@@ -29,6 +28,6 @@ router.use('/chi-tiet-ren-luyen', chitietrenluyenRoutes);
 router.use('/thong-bao', thongbaoRoutes);
 router.use('/trien-khai-thong-bao', trienkhaithongbaoRoutes);
 router.use('/thong-ke', thongkeRoutes);
-router.use('/thong-bao-da-trien-khai', thongBaoDaTrienKhaiRoutes);
+
 
 module.exports = router;

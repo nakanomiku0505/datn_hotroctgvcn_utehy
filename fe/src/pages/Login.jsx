@@ -38,10 +38,10 @@ const Login = () => {
     <div className="login-container">
       <div className="login-card-wrapper animate-fade-in">
         <div className="login-header">
-          <div className="logo-box">
-            <GraduationCap size={28} color="#fff" />
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
+            <img src="/logo.svg" alt="UTEHY Logo" style={{ width: '70px', height: '70px', objectFit: 'contain' }} />
           </div>
-          <h1>EduAdviser</h1>
+          <h1 style={{ fontSize: '24px', fontWeight: 'bold' }}>EduAdviser</h1>
           <p>Hệ thống hỗ trợ công tác Giảng Viên Chủ Nhiệm</p>
         </div>
 

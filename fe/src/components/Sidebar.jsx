@@ -10,10 +10,9 @@ import {
 // roles: null = tất cả, array = chỉ những role này
 const ALL_NAV_ITEMS = [
   { name: 'Thống kê', path: '/', icon: <LayoutDashboard size={20} />, roles: [0, 1, 2] },
-  { name: 'Quản lý thông báo', path: '/notifications', icon: <Bell size={20} />, roles: [0, 2] },
-  { name: 'Triển khai thông báo', path: '/deploy-notifications', icon: <Bell size={20} />, roles: [0, 1] },
+  { name: 'Quản lý thông báo', path: '/notifications', icon: <Bell size={20} />, roles: [0, 1, 2] },
   { name: 'Quản lý người dùng', path: '/users', icon: <UserCog size={20} />, roles: [0] },
-  { name: 'Quản lý GVCN', path: '/teachers', icon: <Users size={20} />, roles: [0, 2] },
+  { name: 'Quản lý GVCN', path: '/teachers', icon: <Users size={20} />, roles: [2] },
   { name: 'Quản lý lớp', path: '/classes', icon: <Users size={20} />, roles: [0, 1, 2] },
   { name: 'Quản lý sinh viên', path: '/students', icon: <GraduationCap size={20} />, roles: [0, 1] },
   { name: 'Điểm danh', path: '/attendance', icon: <CalendarCheck size={20} />, roles: [0, 1, 2, 4] },
@@ -54,8 +53,8 @@ const Sidebar = ({ isOpen, onClose }) => {
   return (
     <div className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="sidebar-header">
-        <h2>
-          <GraduationCap size={28} color="var(--primary)" />
+        <h2 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <img src="/logo.svg" alt="UTEHY Logo" style={{ width: '42px', height: '42px', objectFit: 'contain' }} />
           <span>Hệ thống hỗ trợ công tác GVCN</span>
         </h2>
         <button
