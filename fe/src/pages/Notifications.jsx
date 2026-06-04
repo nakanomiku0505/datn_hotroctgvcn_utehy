@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { Plus, Edit2, Trash2, Copy, Search, X, CheckCircle, XCircle } from 'lucide-react';
+import { Plus, Edit2, Trash2, Copy, Search, X, CheckCircle, XCircle, Loader } from 'lucide-react';
 import { thongBaoAPI, lopAPI } from '../api';
 
 const Notifications = () => {
@@ -22,6 +22,7 @@ const Notifications = () => {
   const [classes, setClasses] = useState([]);
   const [selectedClass, setSelectedClass] = useState('');
   const [deployedIds, setDeployedIds] = useState(new Set());
+  const [downloadingId, setDownloadingId] = useState(null);
   
   const [showModal, setShowModal] = useState(false);
   const [editingId, setEditingId] = useState(null);
@@ -62,7 +63,8 @@ const Notifications = () => {
 
       if (canDeploy && selectedClass) {
         const deployedRes = await thongBaoAPI.getDeployedByLop(selectedClass);
-        const ids = new Set((deployedRes.data || []).map(item => item.thongBaoId));
+        const deployedList = Array.isArray(deployedRes) ? deployedRes : (deployedRes.data || []);
+        const ids = new Set(deployedList.map(item => item.thongBaoId));
         setDeployedIds(ids);
       }
     } catch (err) {
@@ -173,6 +175,9 @@ const Notifications = () => {
     
     try {
       if (isDeployed) {
+        if (!window.confirm('Bạn có chắc chắn muốn hoàn tác từ "Đã triển khai" thành "Chưa triển khai"? Hành động này sẽ được ghi nhận lại và có thể ảnh hưởng đến điều kiện nộp Báo cáo tháng.')) {
+          return;
+        }
         await thongBaoAPI.unmarkDeployed({
           thongBaoId: noti.id,
           lopId: selectedClass
@@ -221,10 +226,10 @@ const Notifications = () => {
 
       <div className="card">
         <div className="page-header mb-4">
-          <div className="d-flex gap-3 flex-wrap align-end">
+          <div className="d-flex gap-3 flex-wrap">
             {canDeploy && (
-              <div style={{ flex: 1, minWidth: '200px' }}>
-                <label className="text-muted d-block mb-1" style={{ fontSize: '0.875rem' }}>Lớp quản lý</label>
+              <div style={{ flex: 1, minWidth: '180px' }}>
+                <label className="text-muted d-block mb-1" style={{ fontSize: '0.875rem', fontWeight: 500 }}>Lớp quản lý</label>
                 <select
                   className="form-control"
                   value={selectedClass}
@@ -235,23 +240,23 @@ const Notifications = () => {
                 </select>
               </div>
             )}
-            <div style={{ flex: 1, minWidth: '120px' }}>
-              <label className="text-muted" style={{ fontSize: '0.75rem', display: 'block', marginBottom: '4px' }}>Tháng</label>
+            <div style={{ flex: 1, minWidth: '110px' }}>
+              <label className="text-muted d-block mb-1" style={{ fontSize: '0.875rem', fontWeight: 500 }}>Tháng</label>
               <select className="form-control" value={filterMonth} onChange={e => setFilterMonth(e.target.value)}>
                 {[...Array(12).keys()].map(i => (
                   <option key={i+1} value={i+1}>Tháng {i+1}</option>
                 ))}
               </select>
             </div>
-            <div style={{ flex: 1, minWidth: '120px' }}>
-              <label className="text-muted" style={{ fontSize: '0.75rem', display: 'block', marginBottom: '4px' }}>Năm</label>
+            <div style={{ flex: 1, minWidth: '100px' }}>
+              <label className="text-muted d-block mb-1" style={{ fontSize: '0.875rem', fontWeight: 500 }}>Năm</label>
               <select className="form-control" value={filterYear} onChange={e => setFilterYear(e.target.value)}>
                 <option value="2025">2025</option>
                 <option value="2026">2026</option>
               </select>
             </div>
-            <div style={{ flex: 1, minWidth: '120px' }}>
-              <label className="text-muted" style={{ fontSize: '0.75rem', display: 'block', marginBottom: '4px' }}>Phân loại</label>
+            <div style={{ flex: 1.5, minWidth: '140px' }}>
+              <label className="text-muted d-block mb-1" style={{ fontSize: '0.875rem', fontWeight: 500 }}>Phân loại</label>
               <select className="form-control" value={filterLoai} onChange={e => setFilterLoai(e.target.value)}>
                 <option value="">Tất cả phân loại</option>
                 <option value="Nhà trường">Nhà trường</option>
@@ -260,8 +265,15 @@ const Notifications = () => {
                 <option value="CVHT">Nội dung CVHT</option>
               </select>
             </div>
-            <div className="d-flex gap-2">
-              <button className="btn btn-outline" onClick={fetchNotifications}><Search size={16}/> Tải lại</button>
+            <div>
+              <label className="d-block mb-1" style={{ fontSize: '0.875rem', visibility: 'hidden' }}>Tải lại</label>
+              <button 
+                className="btn btn-outline" 
+                onClick={fetchNotifications}
+                style={{ display: 'flex', alignItems: 'center', gap: '6px', whiteSpace: 'nowrap' }}
+              >
+                <Search size={16}/> Tải lại
+              </button>
             </div>
           </div>
         </div>
@@ -342,30 +354,67 @@ const Notifications = () => {
                           className="btn btn-outline" 
                           style={{ padding: '6px', color: '#0068ff', borderColor: '#0068ff', display: 'inline-block' }}
                           title="Copy nội dung và mở Zalo"
-                          disabled={!selectedClass}
-                          onClick={() => {
-                            let fileStr = '';
-                            if (noti.fileUrl) {
-                              try {
-                                const urls = JSON.parse(noti.fileUrl);
-                                const names = JSON.parse(noti.fileName);
-                                fileStr = '\nCác file đính kèm:\n' + urls.map((u, i) => `- ${names[i]}: http://localhost:5000${u}`).join('\n');
-                              } catch(e) {
-                                fileStr = `\nTải file đính kèm: http://localhost:5000${noti.fileUrl}`;
+                          disabled={!selectedClass || downloadingId === noti.id}
+                          onClick={async () => {
+                            setDownloadingId(noti.id);
+                            try {
+                              let fileStr = '';
+                              
+                              // Hàm hỗ trợ tải file
+                              const downloadFile = async (url, filename) => {
+                                try {
+                                  const response = await fetch(url);
+                                  const blob = await response.blob();
+                                  const blobUrl = window.URL.createObjectURL(blob);
+                                  const link = document.createElement('a');
+                                  link.href = blobUrl;
+                                  link.download = filename;
+                                  document.body.appendChild(link);
+                                  link.click();
+                                  document.body.removeChild(link);
+                                  window.URL.revokeObjectURL(blobUrl);
+                                } catch (error) {
+                                  console.error('Lỗi khi tải file:', error);
+                                  window.open(url, '_blank');
+                                }
+                              };
+
+                              if (noti.fileUrl) {
+                                try {
+                                  const urls = JSON.parse(noti.fileUrl);
+                                  const names = JSON.parse(noti.fileName);
+                                  fileStr = '\nCác file đính kèm:\n' + urls.map((u, i) => `- ${names[i]}: http://localhost:5000${u}`).join('\n');
+                                  
+                                  // Tự động tải tất cả file trong mảng
+                                  for (let i = 0; i < urls.length; i++) {
+                                    await downloadFile(`http://localhost:5000${urls[i]}`, names[i] || `file_${i}`);
+                                  }
+                                } catch(e) {
+                                  fileStr = `\nTải file đính kèm: http://localhost:5000${noti.fileUrl}`;
+                                  
+                                  // Tự động tải file (legacy string)
+                                  await downloadFile(`http://localhost:5000${noti.fileUrl}`, noti.fileName || 'file');
+                                }
                               }
-                            }
-                            const textToCopy = `Thông báo mới:\n${noti.noiDung || ''}\n${fileStr}`;
-                            navigator.clipboard.writeText(textToCopy.trim()).then(() => {
-                              alert('Đã copy nội dung thông báo vào khay nhớ tạm. Vui lòng dán (Ctrl+V) vào nhóm Zalo của lớp.');
+                              
+                              const textToCopy = `Thông báo mới:\n${noti.noiDung || ''}\n${fileStr}`;
+                              await navigator.clipboard.writeText(textToCopy.trim());
+                              alert('Đã copy nội dung thông báo vào khay nhớ tạm và tự động tải file đính kèm (nếu có). Vui lòng dán (Ctrl+V) và kéo thả file vào nhóm Zalo của lớp.');
                               window.open('https://chat.zalo.me', '_blank');
                               if (!isDeployed) handleToggleDeploy(noti);
-                            }).catch(err => {
-                              console.error('Could not copy text: ', err);
-                              alert('Không thể copy nội dung. Vui lòng thử lại.');
-                            });
+                            } catch (err) {
+                              console.error('Lỗi khi xử lý:', err);
+                              alert('Không thể hoàn tất thao tác. Vui lòng thử lại.');
+                            } finally {
+                              setDownloadingId(null);
+                            }
                           }}
                         >
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 2L11 13"></path><path d="M22 2L15 22L11 13L2 9L22 2Z"></path></svg>
+                          {downloadingId === noti.id ? (
+                            <Loader size={20} className="spin" />
+                          ) : (
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 2L11 13"></path><path d="M22 2L15 22L11 13L2 9L22 2Z"></path></svg>
+                          )}
                         </button>
                       </td>
                     )}

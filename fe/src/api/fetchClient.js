@@ -27,7 +27,7 @@ const fetchClient = async (endpoint, options = {}) => {
 
   try {
     const response = await fetch(`${BASE_URL}${endpoint}`, config);
-    if (response.status === 401 || response.status === 403) {
+    if ((response.status === 401 || response.status === 403) && !endpoint.includes('/auth/login')) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       window.location.href = '/login';
