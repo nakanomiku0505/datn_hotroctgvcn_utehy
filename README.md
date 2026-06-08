@@ -50,7 +50,7 @@ Hệ thống được thiết kế với 4 vai trò chính thông qua mã địn
 | **0** | **Admin** | Quản trị viên | Toàn quyền quản trị hệ thống, quản lý người dùng và cấp tài khoản. |
 | **1** | **GVCN** | Giảng viên chủ nhiệm | Quản lý SV, điểm số, rèn luyện lớp phụ trách và xem báo cáo. |
 | **2** | **Bộ môn/Khoa** | Trưởng bộ môn/khoa | Quản lý và đẩy thông báo, giám sát tiến độ toàn khoa. |
-| **4** | **Lớp trưởng** | Sinh viên BCS | Thực hiện điểm danh sinh viên và xem thông báo của lớp. |
+| **4** | **Lớp trưởng** | Sinh viên BCS | Thực hiện điểm danh sinh viên của lớp. |
 
 ---
 

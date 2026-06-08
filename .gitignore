@@ -122,3 +122,15 @@ Thumbs.db
 
 # Bỏ comment dòng dưới nếu không muốn đưa file SQL lên github
 # *.sql
+
+#docs
+.docs/
+docs/convert_readme_to_word.py
+docs/docs.zip
+docs/EduAdviser_MoTa.docx
+docs/HDSD_EduAdviser.docx
+docs/HuongDanSuDung_ToanHeThong_EduAdviser.md
+docs/HuongDanSuDung_ToanHeThong_EduAdviser_BaoCaoWord.docx
+docs/run.py
+docs/User_Manual_EduAdviser.md
+tools/build_user_manual_docx.py
